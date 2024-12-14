@@ -113,4 +113,4 @@ elif input_method == "Chụp ảnh từ camera":
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
         for hairstyle in hairstyle_images:
-            st.image(hairstyle, caption=f"Kiểu tóc {predicted_label}", use_column_width=True)
+            st.image(hairstyle, caption=f"Kiểu tóc {predicted_label}", use_container_width=True)
