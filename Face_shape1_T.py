@@ -5,7 +5,7 @@ import tensorflow as tf
 import matplotlib.pyplot as plt
 
 # Load mô hình đã huấn luyện
-model = tf.keras.models.load_model(r'D:\hoctap\Ki5\HocMay\MyModel.keras')
+model = tf.keras.models.load_model(r'MyModel.keras')
 
 # Nhãn của các lớp
 class_labels = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
