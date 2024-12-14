@@ -88,7 +88,8 @@ if input_method == "Tải ảnh từ máy tính":
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
         for hairstyle in hairstyle_images:
-            st.image(hairstyle, caption=f"Kiểu tóc {predicted_label}", use_column_width=True)
+            # Thay đổi để dùng st.markdown thay vì st.image
+            st.markdown(f'<img src="{hairstyle}" width="700"/>', unsafe_allow_html=True)
 
 elif input_method == "Chụp ảnh từ camera":
     # Lựa chọn chụp ảnh từ camera
@@ -113,4 +114,5 @@ elif input_method == "Chụp ảnh từ camera":
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
         for hairstyle in hairstyle_images:
-            st.image(hairstyle, caption=f"Kiểu tóc {predicted_label}", use_container_width=True)
+            # Thay đổi để dùng st.markdown thay vì st.image
+            st.markdown(f'<img src="{hairstyle}" width="700"/>', unsafe_allow_html=True)
