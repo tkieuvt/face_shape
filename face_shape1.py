@@ -57,8 +57,6 @@ def suggest_hairstyles(face_shape):
     }
     return suggestions.get(face_shape, [])
 
-
-
 # Tiêu đề của trang web
 st.title("Dự đoán Hình Dạng Khuôn Mặt")
 st.markdown("Chọn một bức ảnh khuôn mặt để dự đoán hình dạng.")
