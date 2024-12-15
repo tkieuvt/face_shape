@@ -4,6 +4,23 @@ from PIL import Image
 import tensorflow as tf
 import matplotlib.pyplot as plt
 
+# Thay đổi tiêu đề tab trình duyệt và favicon
+st.set_page_config(
+    page_title="FaceShape",  # Tiêu đề của tab
+    page_icon="💇‍♀️",               # Biểu tượng tab (emoji hoặc đường dẫn .ico)
+    layout="wide"                    # Layout của ứng dụng
+)
+
+# Nhúng thêm mã HTML để cập nhật title động (nếu cần)
+st.markdown(
+    """
+    <script>
+        document.title = 'Faceshape';
+    </script>
+    """,
+    unsafe_allow_html=True
+)
+
 # Load mô hình đã huấn luyện
 model = tf.keras.models.load_model(r'MyModel.keras')
 
