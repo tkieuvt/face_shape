@@ -30,11 +30,31 @@ def predict_image(image_file, model, class_labels):
 def suggest_hairstyles(face_shape):
     base_url = "https://raw.githubusercontent.com/tkieuvt/face_shape/main/images/"
     suggestions = {
-        'Heart': [f"{base_url}heart1.jpg", f"{base_url}heart2.jpg", f"{base_url}heart3.webp"],
-        'Oblong': [f"{base_url}oblong1.webp", f"{base_url}oblong2.jpg", f"{base_url}oblong3.webp"],
-        'Oval': [f"{base_url}oval1.jpg", f"{base_url}oval2.jpg", f"{base_url}oval3.jpg"],
-        'Round': [f"{base_url}round1.jpg", f"{base_url}round2.jpg", f"{base_url}round3.jpg"],
-        'Square': [f"{base_url}square1.jpg", f"{base_url}square2.jpg", f"{base_url}square3.jpg"]
+        'Heart': [
+            (f"{base_url}heart1.jpg", "Tóc dài xoăn lơi."),
+            (f"{base_url}heart2.jpg", "Tóc ngắn layer."),
+            (f"{base_url}heart3.webp", "Tóc đuôi ngựa buộc thấp với mái thưa.")
+        ],
+        'Oblong': [
+            (f"{base_url}oblong1.webp", "Tóc đuôi ngựa buộc thấp."),
+            (f"{base_url}oblong2.jpg", "Tóc dài xoăn sóng."),
+            (f"{base_url}oblong3.webp", "Tóc ngang vai, mái bay.")
+        ],
+        'Oval': [
+            (f"{base_url}oval1.jpg", "Tóc dài xoăn sóng nhẹ."),
+            (f"{base_url}oval2.jpg", "Tóc ngắn layer tỉa gọn."),
+            (f"{base_url}oval3.jpg", "Tóc thẳng dài.")
+        ],
+        'Round': [
+            (f"{base_url}round1.jpg", "Tóc dài tỉa layer và uốn sóng nhẹ."),
+            (f"{base_url}round2.jpg", "Tóc hippie ngắn với mái thưa"),
+            (f"{base_url}round3.jpg", "Tóc bob dài ngang vai kết hợp mái thưa.")
+        ],
+        'Square': [
+            (f"{base_url}square1.jpg", "Tóc dài tỉa layer với phần mái dài."),
+            (f"{base_url}square2.jpg", "Tóc hippie dài."),
+            (f"{base_url}square3.jpg", "Tóc ngang vai uốn sóng nhẹ.")
+        ]
     }
     return suggestions.get(face_shape, [])
 
@@ -68,9 +88,9 @@ if input_method == "Tải ảnh từ máy tính":
         # Hiển thị gợi ý kiểu tóc 
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
-        for hairstyle in hairstyle_images:
-            # Thay đổi để dùng st.markdown thay vì st.image
-            st.markdown(f'<img src="{hairstyle}" width="700"/>', unsafe_allow_html=True)
+        for hairstyle_url, hairstyle_name in hairstyle_images:
+            st.markdown(f'<img src="{hairstyle_url}" width="700"/>', unsafe_allow_html=True)
+            st.write(f"**{hairstyle_name}**")
 
 elif input_method == "Chụp ảnh từ camera":
     # Lựa chọn chụp ảnh từ camera
@@ -94,6 +114,6 @@ elif input_method == "Chụp ảnh từ camera":
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
-        for hairstyle in hairstyle_images:
-            # Thay đổi để dùng st.markdown thay vì st.image
-            st.markdown(f'<img src="{hairstyle}" width="700"/>', unsafe_allow_html=True)
+        for hairstyle_url, hairstyle_name in hairstyle_images:
+            st.markdown(f'<img src="{hairstyle_url}" width="700"/>', unsafe_allow_html=True)
+            st.write(f"**{hairstyle_name}**")
