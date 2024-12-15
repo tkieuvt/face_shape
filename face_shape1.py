@@ -15,7 +15,7 @@ st.set_page_config(
 st.markdown(
     """
     <script>
-        document.title = 'Faceshape';
+        document.title = 'FaceShape';
     </script>
     """,
     unsafe_allow_html=True
