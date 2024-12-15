@@ -42,8 +42,8 @@ def suggest_hairstyles(face_shape):
         ],
         'Oval': [
             (f"{base_url}oval1.jpg", "Tóc dài xoăn sóng nhẹ."),
-            (f"{base_url}oval2.jpg", "Tóc ngắn layer tỉa gọn."),
-            (f"{base_url}oval3.jpg", "Tóc thẳng dài.")
+            (f"{base_url}oval2.png", "Tóc ngắn layer tỉa gọn."),
+            (f"{base_url}oval3.png", "Tóc thẳng dài.")
         ],
         'Round': [
             (f"{base_url}round1.jpg", "Tóc dài tỉa layer và uốn sóng nhẹ."),
