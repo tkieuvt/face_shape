@@ -28,32 +28,13 @@ def predict_image(image_file, model, class_labels):
     return predictions, predicted_label, predicted_prob
 
 def suggest_hairstyles(face_shape):
+    base_url = "https://raw.githubusercontent.com/tkieuvt/face_shape/main/images/"
     suggestions = {
-        'Heart': [
-            'https://drive.google.com/uc?export=view&id=1cBcD46A5FphdiaHs0Iyw0_7yjXPejdFs',
-            'https://drive.google.com/uc?export=view&id=1ZSTJEI5Io9BhLW9YCQhzbTtZ_BU6ArPj',
-            'https://drive.google.com/uc?export=view&id=1571LQ8Fox7_lkVllgLMknkopnU8vk5fs'
-        ],
-        'Oblong': [
-            'https://drive.google.com/uc?export=view&id=1XSJvPi7VpIME9MaWczmGtN-I4_0UPk_C',
-            'https://drive.google.com/uc?export=view&id=1POu8T7iO0xFqK5rctMJ3PLDRqK4zb9bR',
-            'https://drive.google.com/uc?export=view&id=1YSy_5jvV7D7TKMRFW8HdFHket8Mzlbyj'
-        ],
-        'Oval': [
-            'https://drive.google.com/uc?export=view&id=1LWlxf-6yBB0HMP4MyP427HO6Zsk8SoMh',
-            'https://drive.google.com/uc?export=view&id=1VZ3cnv9xGXyyoxaMgmBDSah3arfNPB7W',
-            'https://drive.google.com/uc?export=view&id=1kiFlPMzB4WzJgUlo1FfFbPKQkubYQ7r1'
-        ],
-        'Round': [
-            'https://drive.google.com/uc?export=view&id=1sn1zOax5Xvc6_PHS3JiLbTsq2y2uu0-e',
-            'https://drive.google.com/uc?export=view&id=1zfz2uEP4GjAnyYo5qcQdU0FXANYm8b3N',
-            'https://drive.google.com/uc?export=view&id=1bSVkaDnWU9cJmlKm0R0UEJ0-qtimNLDG'
-        ],
-        'Square': [
-            'https://drive.google.com/uc?export=view&id=1wXpdfaKOnZPttoap_Oli6Be2T7G3_wbl',
-            'https://drive.google.com/uc?export=view&id=1VzoxWxWmNJfBrrpEQxh6RkRSjUOYP4gb',
-            'https://drive.google.com/uc?export=view&id=14YUXYayqD2wrwYJz_4tf27_mjwUcesUV'
-        ],
+        'Heart': [f"{base_url}heart1.jpg", f"{base_url}heart2.jpg", f"{base_url}heart3.webp"],
+        'Oblong': [f"{base_url}oblong1.webp", f"{base_url}oblong2.jpg", f"{base_url}oblong3.webp"],
+        'Oval': [f"{base_url}oval1.jpg", f"{base_url}oval2.jpg", f"{base_url}oval3.jpg"],
+        'Round': [f"{base_url}round1.jpg", f"{base_url}round2.jpg", f"{base_url}round3.jpg"],
+        'Square': [f"{base_url}square1.jpg", f"{base_url}square2.jpg", f"{base_url}square3.jpg"]
     }
     return suggestions.get(face_shape, [])
 
