@@ -88,9 +88,14 @@ if input_method == "Tải ảnh từ máy tính":
         # Hiển thị gợi ý kiểu tóc 
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
-        for hairstyle_url, hairstyle_name in hairstyle_images:
-            st.markdown(f'<img src="{hairstyle_url}" width="700"/>', unsafe_allow_html=True)
-            st.write(f"**{hairstyle_name}**")
+        
+        # Chia ảnh thành các nhóm mỗi nhóm gồm 3 ảnh
+        for i in range(0, len(hairstyle_images), 3):
+            cols = st.columns(3)  # Tạo 3 cột
+            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
+                with col:
+                    st.image(hairstyle_url, use_column_width='auto', caption=hairstyle_name)
+
 
 elif input_method == "Chụp ảnh từ camera":
     # Lựa chọn chụp ảnh từ camera
@@ -114,6 +119,11 @@ elif input_method == "Chụp ảnh từ camera":
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
-        for hairstyle_url, hairstyle_name in hairstyle_images:
-            st.markdown(f'<img src="{hairstyle_url}" width="700"/>', unsafe_allow_html=True)
-            st.write(f"**{hairstyle_name}**")
+        
+        # Chia ảnh thành các nhóm mỗi nhóm gồm 3 ảnh
+        for i in range(0, len(hairstyle_images), 3):
+            cols = st.columns(3)  # Tạo 3 cột
+            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
+                with col:
+                    st.image(hairstyle_url, use_column_width='auto', caption=hairstyle_name)
+
