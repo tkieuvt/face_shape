@@ -93,14 +93,15 @@ if input_method == "Tải ảnh từ máy tính":
         predictions, predicted_label, predicted_prob = predict_image(uploaded_file, model, class_labels)
         st.write(f"Dự đoán: {predicted_label} với xác suất {predicted_prob:.2f}")
 
-        # Hiển thị đồ thị về kết quả dự đoán
-        st.subheader("Đồ thị dự đoán")
-        fig, ax = plt.subplots()
-        ax.bar(class_labels, predictions[0])
-        ax.set_ylabel('Xác suất')
-        ax.set_xlabel('Hình dáng khuôn mặt')
-        ax.set_title('Dự đoán xác suất của từng lớp')
+        fig, ax = plt.subplots(figsize=(5, 3))
+        ax.bar(class_labels, predictions[0], color='skyblue')  # Thay đổi màu sắc cột
+        ax.set_ylabel('Xác suất', fontsize=10)  # Kích thước chữ nhỏ hơn
+        ax.set_xlabel('Hình dáng khuôn mặt', fontsize=10)
+        ax.set_title('Dự đoán xác suất của từng lớp', fontsize=12)
+        plt.xticks(fontsize=9)  # Nhãn trục x nhỏ hơn
+        plt.yticks(fontsize=9)  # Nhãn trục y nhỏ hơn
         st.pyplot(fig)
+
 
         # Hiển thị gợi ý kiểu tóc 
         st.subheader("Gợi ý kiểu tóc phù hợp")
