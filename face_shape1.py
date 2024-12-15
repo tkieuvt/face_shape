@@ -53,7 +53,7 @@ def suggest_hairstyles(face_shape):
         'Square': [
             (f"{base_url}square1.jpg", "Tóc dài tỉa layer với phần mái dài."),
             (f"{base_url}square2.jpg", "Tóc hippie dài."),
-            (f"{base_url}square3.jpg", "Tóc ngang vai uốn sóng nhẹ.")
+            (f"{base_url}square3.jpg", "Tóc bob ngắn.")
         ]
     }
     return suggestions.get(face_shape, [])
