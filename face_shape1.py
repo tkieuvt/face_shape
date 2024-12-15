@@ -94,7 +94,17 @@ if input_method == "Tải ảnh từ máy tính":
             cols = st.columns(3)  # Tạo 3 cột
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
-                    st.image(hairstyle_url, use_column_width='auto', caption=hairstyle_name)
+                    # Hiển thị ảnh với CSS để đồng nhất kích thước
+                    st.markdown(
+                        f"""
+                        <div style="text-align: center;">
+                            <img src="{hairstyle_url}" style="width:150px; height:150px; object-fit:cover; border-radius:10px;"/>
+                            <p style="font-weight: bold;">{hairstyle_name}</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
 
 
 elif input_method == "Chụp ảnh từ camera":
@@ -125,5 +135,15 @@ elif input_method == "Chụp ảnh từ camera":
             cols = st.columns(3)  # Tạo 3 cột
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
-                    st.image(hairstyle_url, use_column_width='auto', caption=hairstyle_name)
+                    # Hiển thị ảnh với CSS để đồng nhất kích thước
+                    st.markdown(
+                        f"""
+                        <div style="text-align: center;">
+                            <img src="{hairstyle_url}" style="width:150px; height:150px; object-fit:cover; border-radius:10px;"/>
+                            <p style="font-weight: bold;">{hairstyle_name}</p>
+                        </div>
+                        """,
+                        unsafe_allow_html=True,
+                    )
+
 
