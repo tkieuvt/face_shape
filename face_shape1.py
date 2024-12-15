@@ -21,8 +21,13 @@ st.markdown(
     unsafe_allow_html=True
 )
 
-# Load mô hình đã huấn luyện
-model = tf.keras.models.load_model(r'MyModel.keras')
+# Hàm tải mô hình, sử dụng cache
+@st.cache_resource
+def load_model():
+    return tf.keras.models.load_model(r'MyModel.keras')
+
+# Tải mô hình một lần khi ứng dụng bắt đầu
+model = load_model()
 
 # Nhãn của các lớp
 class_labels = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
@@ -95,13 +100,12 @@ if input_method == "Tải ảnh từ máy tính":
 
         # Hiển thị đồ thị về kết quả dự đoán
         st.subheader("Đồ thị dự đoán")
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))  # Điều chỉnh kích thước đồ thị nhỏ hơn
         ax.bar(class_labels, predictions[0])
         ax.set_ylabel('Xác suất')
         ax.set_xlabel('Hình dáng khuôn mặt')
         ax.set_title('Dự đoán xác suất của từng lớp')
         st.pyplot(fig)
-
 
         # Hiển thị gợi ý kiểu tóc 
         st.subheader("Gợi ý kiểu tóc phù hợp")
@@ -137,7 +141,7 @@ elif input_method == "Chụp ảnh từ camera":
 
         # Hiển thị đồ thị về kết quả dự đoán
         st.subheader("Đồ thị dự đoán")
-        fig, ax = plt.subplots()
+        fig, ax = plt.subplots(figsize=(6, 4))  # Điều chỉnh kích thước đồ thị nhỏ hơn
         ax.bar(class_labels, predictions[0])
         ax.set_ylabel('Xác suất')
         ax.set_xlabel('Hình dáng khuôn mặt')
