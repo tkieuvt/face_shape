@@ -128,6 +128,19 @@ if input_method == "Tải ảnh từ máy tính":
             """,
             unsafe_allow_html=True,
         )
+        #Hiển thị đồ thị dự đoán
+        st.subheader("Đồ thị dự đoán")
+        fig, ax = plt.subplots()
+        
+        # Đổi bar thành barh để vẽ biểu đồ ngang
+        ax.barh(class_labels, predictions[0])
+        
+        # Cập nhật nhãn và tiêu đề
+        ax.set_xlabel('Xác suất')
+        ax.set_ylabel('Hình dáng khuôn mặt')
+        ax.set_title('Dự đoán xác suất của từng lớp')
+        
+        st.pyplot(fig)
 
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
@@ -170,6 +183,19 @@ elif input_method == "Chụp ảnh từ camera":
             """,
             unsafe_allow_html=True,
         )
+        #Hiển thị đồ thị dự đoán
+        st.subheader("Đồ thị dự đoán")
+        fig, ax = plt.subplots()
+        
+        # Đổi bar thành barh để vẽ biểu đồ ngang
+        ax.barh(class_labels, predictions[0])
+        
+        # Cập nhật nhãn và tiêu đề
+        ax.set_xlabel('Xác suất')
+        ax.set_ylabel('Hình dáng khuôn mặt')
+        ax.set_title('Dự đoán xác suất của từng lớp')
+        
+        st.pyplot(fig)
 
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
