@@ -70,7 +70,7 @@ def suggest_hairstyles(face_shape):
     base_url = "https://raw.githubusercontent.com/tkieuvt/face_shape/main/images/"
     suggestions = {
         'Heart': [
-            (f"{base_url}heart1.jpg", "Tóc dài xoăn lơi"),
+            (f"{base_url}heart1.jpg", "Tóc lửng ôm mặt với mái thưa"),
             (f"{base_url}heart2.jpg", "Tóc layer ngắn với mái thưa bay"),
             (f"{base_url}heart3.webp", "Tóc đuôi ngựa với mái bay")
         ],
@@ -85,9 +85,9 @@ def suggest_hairstyles(face_shape):
             (f"{base_url}oval3.png", "Tóc layer thẳng dài")
         ],
         'Round': [
-            (f"{base_url}round1.jpg", "Tóc dài uốn sóng lơi với mái thưa"),
-            (f"{base_url}round2.jpg", "Tóc hippie ngắn với mái thưa"),
-            (f"{base_url}round3.jpg", "Tóc bob ngang vai với mái thưa")
+            (f"{base_url}round1.jpg", "Tóc dài layer với mái bay"),
+            (f"{base_url}round2.jpg", "Tóc bob dài uốn cụp với mái bay"),
+            (f"{base_url}round3.webp", "Tóc dài uốn lơi với mái dài")
         ],
         'Square': [
             (f"{base_url}square1.jpg", "Tóc layer dài với phần mái dài"),
