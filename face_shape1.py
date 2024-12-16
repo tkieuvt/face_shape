@@ -39,6 +39,15 @@ model = load_model()
 # Nhãn của các lớp
 class_labels = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
 
+# Từ điển ánh xạ nhãn
+label_translation = {
+    'Heart': 'Mặt trái tim',
+    'Oblong': 'Mặt dài',
+    'Oval': 'Mặt trái xoan',
+    'Round': 'Mặt tròn',
+    'Square': 'Mặt vuông'
+}
+
 # Tiền xử lý ảnh
 def preprocess_image(image_file):
     img = Image.open(image_file)
@@ -102,24 +111,27 @@ if input_method == "Tải ảnh từ máy tính":
         # Phần hiển thị dự đoán
         img = Image.open(uploaded_file)
         st.image(img, caption="Ảnh đã tải lên", use_container_width=True)
-        
+
+        predictions, predicted_label, predicted_prob = predict_image(uploaded_file, model, class_labels)
+        # Chuyển nhãn dự đoán sang tiếng Việt
+        predicted_label_vn = label_translation.get(predicted_label, "Không xác định")
+
         # Làm phần chữ dự đoán to hơn
         st.markdown(
             f"""
             <div style="text-align: center; margin-top: 20px;">
-                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label}</b></h2>
+                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label_vn}</b></h2>
                 <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
 
-        for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
+        for i in range(0, len(hairstyle_images), 3):  # Hiển thị 3 ảnh mỗi hàng
             cols = st.columns(3)
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
@@ -139,25 +151,27 @@ elif input_method == "Chụp ảnh từ camera":
     if camera_input is not None:
         # Hiển thị ảnh chụp
         st.image(camera_input, caption="Ảnh chụp từ camera", use_container_width=True)
-        
-        # Làm phần chữ dự đoán to hơn
+
         predictions, predicted_label, predicted_prob = predict_image(camera_input, model, class_labels)
+        # Chuyển nhãn dự đoán sang tiếng Việt
+        predicted_label_vn = label_translation.get(predicted_label, "Không xác định")
+
+        # Làm phần chữ dự đoán to hơn
         st.markdown(
             f"""
             <div style="text-align: center; margin-top: 20px;">
-                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label}</b></h2>
+                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label_vn}</b></h2>
                 <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
             </div>
             """,
             unsafe_allow_html=True,
         )
 
-
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
 
-        for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
+        for i in range(0, len(hairstyle_images), 3):  # Hiển thị 3 ảnh mỗi hàng
             cols = st.columns(3)
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
