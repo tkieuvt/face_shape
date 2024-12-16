@@ -134,7 +134,7 @@ if input_method == "Tải ảnh từ máy tính":
         
         # Tùy chỉnh màu sắc gradient
         colors = ['#5A4FCF', '#7A6FE1', '#A19BE8', '#C0BBF2', '#E4E2F7']
-        bars = ax.barh(class_labels, predictions[0], color=colors, edgecolor="none")
+        bars = ax.barh(class_labels, predictions[0], color=colors, edgecolor="none", height=0.5)
         
         # Hiển thị xác suất trên thanh
         for bar, value in zip(bars, predictions[0]):
