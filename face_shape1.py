@@ -137,9 +137,21 @@ elif input_method == "Chụp ảnh từ camera":
     camera_input = st.camera_input("Chụp ảnh từ camera")
 
     if camera_input is not None:
+        # Hiển thị ảnh chụp
         st.image(camera_input, caption="Ảnh chụp từ camera", use_container_width=True)
+        
+        # Làm phần chữ dự đoán to hơn
         predictions, predicted_label, predicted_prob = predict_image(camera_input, model, class_labels)
-        st.write(f"Dự đoán: **{predicted_label}** với xác suất **{predicted_prob:.2f}**")
+        st.markdown(
+            f"""
+            <div style="text-align: center; margin-top: 20px;">
+                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label}</b></h2>
+                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
 
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
