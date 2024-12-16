@@ -132,26 +132,40 @@ if input_method == "Tải ảnh từ máy tính":
         st.subheader("Đồ thị dự đoán")
         fig, ax = plt.subplots(figsize=(8, 6))  # Tăng kích thước biểu đồ
         
-        # Tùy chỉnh màu sắc gradient
+        # Dữ liệu thanh nền màu nhạt
+        background_color = '#E4E2F7'
+        max_value = 100  # Giới hạn giá trị phần trăm để vẽ thanh nền
+        
+        # Vẽ thanh nền nhạt trước
+        for i in range(len(class_labels)):
+            ax.barh(i, max_value, color=background_color, edgecolor="none", height=0.5, zorder=0)
+        
+        # Tùy chỉnh màu sắc gradient cho thanh chính
         colors = ['#5A4FCF', '#7A6FE1', '#A19BE8', '#C0BBF2', '#E4E2F7']
-        bars = ax.barh(class_labels, predictions[0], color=colors, edgecolor="none", height=0.5)
+        bars = ax.barh(range(len(class_labels)), [value * 100 for value in predictions[0]], 
+                       color=colors, edgecolor="none", height=0.5, zorder=1)
         
         # Hiển thị xác suất trên thanh
         for bar, value in zip(bars, predictions[0]):
-            ax.text(value + 0.01, bar.get_y() + bar.get_height()/2, f'{value*100:.2f}%', 
-                    va='center', ha='left', fontsize=10, color='black')
+            ax.text(bar.get_width() - 5, bar.get_y() + bar.get_height()/2, 
+                    f'{value*100:.0f}%', va='center', ha='right', fontsize=10, color='black', fontweight='bold')
         
         # Tùy chỉnh trục và layout
         ax.invert_yaxis()  # Đảo ngược thứ tự trục Y
         ax.set_xticks([])  # Ẩn trục X
         ax.set_yticks(range(len(class_labels)))
-        ax.spines['top'].set_visible(False)
-        ax.spines['right'].set_visible(False)
-        ax.spines['left'].set_visible(False)
-        ax.spines['bottom'].set_visible(False)
-        ax.set_title("Dự đoán xác suất của từng lớp", fontsize=14, fontweight='bold', pad=10)
+        ax.set_yticklabels(class_labels, fontsize=12, fontweight='bold')  # Nhãn cột Y
         
+        # Ẩn các đường viền và trục
+        for spine in ['top', 'right', 'left', 'bottom']:
+            ax.spines[spine].set_visible(False)
+        
+        # Thêm tiêu đề
+        ax.set_title("Dự đoán xác suất của từng lớp", fontsize=16, fontweight='bold', pad=10)
+        
+        # Hiển thị biểu đồ
         st.pyplot(fig)
+
 
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
