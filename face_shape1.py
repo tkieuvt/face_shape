@@ -104,21 +104,12 @@ if input_method == "Tải ảnh từ máy tính":
         predictions, predicted_label, predicted_prob = predict_image(uploaded_file, model, class_labels)
         st.write(f"Dự đoán: **{predicted_label}** với xác suất **{predicted_prob:.2f}**")
 
-        # Hiển thị đồ thị dự đoán
-        st.subheader("Đồ thị dự đoán")
-        fig, ax = plt.subplots(figsize=(6, 4))
-        ax.bar(class_labels, predictions[0])
-        ax.set_ylabel('Xác suất')
-        ax.set_xlabel('Hình dáng khuôn mặt')
-        ax.set_title('Dự đoán xác suất của từng lớp')
-        st.pyplot(fig)
-
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
 
         for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
-            cols = st.columns(2)
+            cols = st.columns(3)
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 2]):
                 with col:
                     st.markdown(
@@ -139,21 +130,12 @@ elif input_method == "Chụp ảnh từ camera":
         predictions, predicted_label, predicted_prob = predict_image(camera_input, model, class_labels)
         st.write(f"Dự đoán: **{predicted_label}** với xác suất **{predicted_prob:.2f}**")
 
-        # Hiển thị đồ thị dự đoán
-        st.subheader("Đồ thị dự đoán")
-        fig, ax = plt.subplots(figsize=(6, 4))
-        ax.bar(class_labels, predictions[0])
-        ax.set_ylabel('Xác suất')
-        ax.set_xlabel('Hình dáng khuôn mặt')
-        ax.set_title('Dự đoán xác suất của từng lớp')
-        st.pyplot(fig)
-
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
         hairstyle_images = suggest_hairstyles(predicted_label)
 
         for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
-            cols = st.columns(2)
+            cols = st.columns(3)
             for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 2]):
                 with col:
                     st.markdown(
