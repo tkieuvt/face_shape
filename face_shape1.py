@@ -110,7 +110,7 @@ if input_method == "Tải ảnh từ máy tính":
 
         for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
             cols = st.columns(3)
-            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 2]):
+            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
                     st.markdown(
                         f"""
@@ -136,7 +136,7 @@ elif input_method == "Chụp ảnh từ camera":
 
         for i in range(0, len(hairstyle_images), 3):  # Hiển thị 2 ảnh mỗi hàng
             cols = st.columns(3)
-            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 2]):
+            for col, (hairstyle_url, hairstyle_name) in zip(cols, hairstyle_images[i:i + 3]):
                 with col:
                     st.markdown(
                         f"""
