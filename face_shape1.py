@@ -115,13 +115,15 @@ if input_method == "Tải ảnh từ máy tính":
         predictions, predicted_label, predicted_prob = predict_image(uploaded_file, model, class_labels)
         # Chuyển nhãn dự đoán sang tiếng Việt
         predicted_label_vn = label_translation.get(predicted_label, "Không xác định")
+        # Chuyển xác suất thành %
+        predicted_prob_percent = predicted_prob * 100
 
         # Làm phần chữ dự đoán to hơn
         st.markdown(
             f"""
             <div style="text-align: center; margin-top: 20px;">
                 <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label_vn}</b></h2>
-                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
+                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob_percent:.2f}%</b></p>
             </div>
             """,
             unsafe_allow_html=True,
@@ -155,13 +157,15 @@ elif input_method == "Chụp ảnh từ camera":
         predictions, predicted_label, predicted_prob = predict_image(camera_input, model, class_labels)
         # Chuyển nhãn dự đoán sang tiếng Việt
         predicted_label_vn = label_translation.get(predicted_label, "Không xác định")
+        # Chuyển xác suất thành %
+        predicted_prob_percent = predicted_prob * 100
 
         # Làm phần chữ dự đoán to hơn
         st.markdown(
             f"""
             <div style="text-align: center; margin-top: 20px;">
                 <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label_vn}</b></h2>
-                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
+                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob_percent:.2f}%</b></p>
             </div>
             """,
             unsafe_allow_html=True,
