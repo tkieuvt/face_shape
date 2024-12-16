@@ -70,29 +70,29 @@ def suggest_hairstyles(face_shape):
     base_url = "https://raw.githubusercontent.com/tkieuvt/face_shape/main/images/"
     suggestions = {
         'Heart': [
-            (f"{base_url}heart1.jpg", "Tóc dài xoăn lơi."),
-            (f"{base_url}heart2.jpg", "Tóc ngắn layer."),
-            (f"{base_url}heart3.webp", "Tóc đuôi ngựa buộc thấp với mái bay.")
+            (f"{base_url}heart1.jpg", "Tóc dài xoăn lơi"),
+            (f"{base_url}heart2.jpg", "Tóc ngắn layer"),
+            (f"{base_url}heart3.webp", "Tóc đuôi ngựa buộc thấp với mái bay")
         ],
         'Oblong': [
-            (f"{base_url}oblong1.webp", "Tóc búi thấp, mái bay."),
-            (f"{base_url}oblong2.jpg", "Tóc dài xoăn sóng."),
-            (f"{base_url}oblong3.webp", "Tóc ngang vai, mái bay.")
+            (f"{base_url}oblong1.webp", "Tóc búi thấp, mái bay"),
+            (f"{base_url}oblong2.jpg", "Tóc dài xoăn sóng"),
+            (f"{base_url}oblong3.webp", "Tóc ngang vai, mái bay")
         ],
         'Oval': [
-            (f"{base_url}oval1.jpg", "Tóc dài xoăn sóng nhẹ."),
-            (f"{base_url}oval2.png", "Tóc ngắn layer tỉa gọn."),
-            (f"{base_url}oval3.png", "Tóc thẳng dài.")
+            (f"{base_url}oval1.jpg", "Tóc dài xoăn sóng nhẹ"),
+            (f"{base_url}oval2.png", "Tóc ngắn uốn cụp, mái bay"),
+            (f"{base_url}oval3.png", "Tóc layer thẳng dài")
         ],
         'Round': [
-            (f"{base_url}round1.jpg", "Tóc dài tỉa layer và uốn sóng nhẹ."),
+            (f"{base_url}round1.jpg", "Tóc dài uống sóng lơi, mái thưa"),
             (f"{base_url}round2.jpg", "Tóc hippie ngắn với mái thưa"),
-            (f"{base_url}round3.jpg", "Tóc bob dài ngang vai kết hợp mái thưa.")
+            (f"{base_url}round3.jpg", "Tóc bob ngang vai kết hợp mái thưa")
         ],
         'Square': [
-            (f"{base_url}square1.jpg", "Tóc dài tỉa layer với phần mái dài."),
-            (f"{base_url}square2.jpg", "Tóc hippie dài."),
-            (f"{base_url}square3.jpg", "Tóc bob ngắn.")
+            (f"{base_url}square1.jpg", "Tóc dài tỉa layer với phần mái dài"),
+            (f"{base_url}square2.jpg", "Tóc hippie dài"),
+            (f"{base_url}square3.jpg", "Tóc bob ngắn")
         ]
     }
     return suggestions.get(face_shape, [])
