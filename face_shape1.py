@@ -99,10 +99,21 @@ if input_method == "Tải ảnh từ máy tính":
     uploaded_file = st.file_uploader("Tải ảnh của bạn lên", type=["jpg", "png", "jpeg"])
 
     if uploaded_file is not None:
+        # Phần hiển thị dự đoán
         img = Image.open(uploaded_file)
         st.image(img, caption="Ảnh đã tải lên", use_container_width=True)
-        predictions, predicted_label, predicted_prob = predict_image(uploaded_file, model, class_labels)
-        st.write(f"Dự đoán: **{predicted_label}** với xác suất **{predicted_prob:.2f}**")
+        
+        # Làm phần chữ dự đoán to hơn
+        st.markdown(
+            f"""
+            <div style="text-align: center; margin-top: 20px;">
+                <h2 style="font-size: 28px; color: #4CAF50;">Dự đoán: <b>{predicted_label}</b></h2>
+                <p style="font-size: 22px; color: #555;">Xác suất: <b>{predicted_prob:.2f}</b></p>
+            </div>
+            """,
+            unsafe_allow_html=True,
+        )
+
 
         # Hiển thị gợi ý kiểu tóc
         st.subheader("Gợi ý kiểu tóc phù hợp")
