@@ -72,10 +72,10 @@ def suggest_hairstyles(face_shape):
         'Heart': [
             (f"{base_url}heart1.jpg", "Tóc dài xoăn lơi."),
             (f"{base_url}heart2.jpg", "Tóc ngắn layer."),
-            (f"{base_url}heart3.webp", "Tóc đuôi ngựa buộc thấp với mái thưa.")
+            (f"{base_url}heart3.webp", "Tóc đuôi ngựa buộc thấp với mái bay.")
         ],
         'Oblong': [
-            (f"{base_url}oblong1.webp", "Tóc đuôi ngựa buộc thấp."),
+            (f"{base_url}oblong1.webp", "Tóc búi thấp, mái bay."),
             (f"{base_url}oblong2.jpg", "Tóc dài xoăn sóng."),
             (f"{base_url}oblong3.webp", "Tóc ngang vai, mái bay.")
         ],
