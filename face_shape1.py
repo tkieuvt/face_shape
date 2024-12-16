@@ -42,7 +42,7 @@ class_labels = ['Heart', 'Oblong', 'Oval', 'Round', 'Square']
 # Từ điển ánh xạ nhãn
 label_translation = {
     'Heart': 'Mặt trái tim',
-    'Oblong': 'Mặt dài',
+    'Oblong': 'Mặt thon dài',
     'Oval': 'Mặt trái xoan',
     'Round': 'Mặt tròn',
     'Square': 'Mặt vuông'
